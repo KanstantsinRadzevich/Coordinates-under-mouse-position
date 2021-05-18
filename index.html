@@ -5,11 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maps</title>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
 </head>
 <body>
-    <img src="assets/img/logo.png" alt="logo" width="250px">
+
+    <img src="assets/img/logo.png" alt="logo" width="250px" usemap="#bel">
     <map name="bel">
-        <area shape="poly" coords="" href="" alt="">
+        <area shape="circle" coords="125,125,50" href="https://google.com" alt="google" target="_blank">
+        <area shape="rect" coords="1,1,50,50" href="https://yandex.ru" alt="google" target="_blank">
+        
     </map>
+    <div id="coord"></div>
+<!--Придвижении мышкой. Скрипт для отображения информации о точках на рисунке-->
+    <script>
+        $(document).ready(function() {
+            $('img').on("mousemove", function(e) {
+                var offset = $(this).offset();
+                var X = (e.pageX - offset.left);
+                var Y = (e.pageY - offset.top);
+                $('#coord').text('X: ' + X + ', Y: ' + Y);
+            });
+        });
+    </script>
+<!--Придвижении нажатии на картинку мышкой. Скрипт для отображения информации о точках на рисунке-->
+<!--
+    <script>
+        $(document).ready(function() {
+            $('img').click(function(e) {
+                var offset = $(this).offset();
+                var X = (e.pageX - offset.left);
+                var Y = (e.pageY - offset.top);
+                $('#coord').text('X: ' + X + ', Y: ' + Y);
+            });
+        });
+    </script>
+-->
 </body>
 </html>
